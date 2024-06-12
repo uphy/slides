@@ -1,0 +1,21 @@
+name: Publish Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to pages
+        uses: uphy/go-revealjs/actions/deploy-all-to-pages@main
